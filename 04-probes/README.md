@@ -14,6 +14,10 @@ Installer le fichier yaml sur le cluster
 kubectl apply -f <chemin_vers_yaml> --namespace=<nom_namespace>
 ```
 
+## Builder 
+`docker build . -t localhost:<port>/<nom_image>:0.0.1`
+
+`docker push localhost:<port>/<nom_image>:0.0.1`
 
 
 ## Documentation des probes

@@ -5,7 +5,7 @@ metadata:
 spec:
   #ingressClassName: nginx
   rules:
-    - host: app-ml.ariane.loc
+    - host: app-ml.ariane.local
       http:
         paths:
           - path: /

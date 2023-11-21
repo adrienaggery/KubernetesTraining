@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-ml-deployment
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: app-ml
+  template:
+    metadata:
+      labels:
+        app: app-ml
+    spec:
+      containers:
+        - name: app-ml
+          image: gamingrent-registry:54274/app-ml:0.0.2
+          ports:
+            - name: main
+              containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /__ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            failureThreshold: 14

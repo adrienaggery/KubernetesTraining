@@ -1,9 +1,10 @@
 # 04-jobs
 
 ## Objectif
-Ecrire une ressource de type Job dans un fichier yaml
 
-Le job lancé doit etre celui présent dans la doc de kubernetes
+Builder puis tagger cette image en deux version: 0.0.1 et 0.0.2
+
+Pousser les images sur le registry du cluster
 
 Installer le fichier yaml sur le cluster
 
@@ -13,5 +14,7 @@ Installer le fichier yaml sur le cluster
 kubectl apply -f <chemin_vers_yaml> --namespace=<nom_namespace>
 ```
 
-## Documentation des deployments
-https://kubernetes.io/docs/concepts/workloads/controllers/job/#writing-a-job-spec
+
+
+## Documentation des probes
+https://kubernetes.io/fr/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/

@@ -1,13 +1,31 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pi
+  name: app-ml-deployment
 spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-ml
   template:
+    metadata:
+      labels:
+        app: app-ml
     spec:
       containers:
-        - name: pi
-          image: perl:5.34.0
-          command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
-      restartPolicy: Never
-  backoffLimit: 4
+        - name: app-ml
+          image: gamingrent-registry:54274/app-ml:0.0.1
+          readinessProbe:
+            httpGet:
+              path: /__ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            failureThreshold: 14
+          livenessProbe:
+            httpGet:
+              path: /__health
+              port: 8080
+            periodSeconds: 3
+            failureThreshold: 3
+

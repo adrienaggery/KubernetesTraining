@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-ml
+  name: app-ml-service
 spec:
-  type: ClusterIP
   selector:
     app: app-ml
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 8080

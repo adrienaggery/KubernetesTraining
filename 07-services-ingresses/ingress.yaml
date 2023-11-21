@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ml-ingress
+spec:
+  #ingressClassName: nginx
+  rules:
+    - host: app-ml.ariane.loc
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: app-ml-service
+                port:
+                  number: 80

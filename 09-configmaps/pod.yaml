@@ -8,7 +8,7 @@ spec:
       image: nginx
       envFrom:
         - configMapRef:
-            name: configmap-demo
+            name: configmap-keys
       env:
         - name: SERVICE_API_KEY
           value: "1zx7rfnr9fne-e8fe3"

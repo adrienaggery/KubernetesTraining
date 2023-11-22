@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vish
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vish
+  template:
+    metadata:
+      labels:
+        app: vish
+    spec:
+      containers:
+        - name: vish
+          image: vish/stress
+          resources:
+            limits:
+              memory: "256Mi"
+            requests:
+              memory: "64Mi"
+          args:
+            - -mem-total
+            - "200Mi"

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-keys
+data:
+  # property-like keys; each key maps to a simple value
+  DATABASE_HOST: "postgresql://staging.domain.com"
+  AUTH_DOMAIN: "https://staging.sso.domain.com"
+  THREAD_POOL_SIZE: "100"

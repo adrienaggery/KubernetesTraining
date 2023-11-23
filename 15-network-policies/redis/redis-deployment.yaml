@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: redis-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: mon-app-nginx
+      app: redis
   template:
     metadata:
       labels:
-        app: mon-app-nginx
+        app: redis
     spec:
       containers:
-        - name: nginx
-          image: nginx
+        - name: redis
+          image: redis

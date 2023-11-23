@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-ml-deployment
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: app-ml
+  template:
+    metadata:
+      labels:
+        app: app-ml
+    spec:
+      imagePullSecrets:
+        - name: registry-secret
+      containers:
+        - name: app-ml
+          image: rg.fr-par.scw.cloud/ariane-registry/app-ml:0.0.3
+          ports:
+            - name: main
+              containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /__ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            failureThreshold: 14

@@ -6,5 +6,5 @@ Initialiser un projet helm
 `helm create <nom>`
 
 Installer un package helm:
-`helm upgrade --dependency-update --install --namespace <namespace> <npm_release> <chemin_vers_dossier_helm>`
+`helm upgrade --install --namespace <namespace> <npm_release> <chemin_vers_dossier_helm> --set database_host=http://test.com"`
 

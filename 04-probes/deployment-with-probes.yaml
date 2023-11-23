@@ -13,8 +13,8 @@ spec:
         app: app-ml
     spec:
       containers:
-        - name: app-ml
-          image: gamingrent-registry:54274/app-ml:0.0.1
+        - name: src-ml
+          image: gamingrent-registry:54274/src-ml:0.0.1
           readinessProbe:
             httpGet:
               path: /__ready

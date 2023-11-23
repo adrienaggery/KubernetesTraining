@@ -4,13 +4,13 @@ metadata:
   name: app-ml-ingress
 spec:
   rules:
-    - host: app-ml.f9219766-44f3-415d-9e7b-016903a9d083.nodes.k8s.fr-par.scw.cloud
+    - host: src-ml.f9219766-44f3-415d-9e7b-016903a9d083.nodes.k8s.fr-par.scw.cloud
       http:
         paths:
           - path: /
             pathType: ImplementationSpecific
             backend:
               service:
-                name: app-ml-service
+                name: src-ml-service
                 port:
                   number: 80

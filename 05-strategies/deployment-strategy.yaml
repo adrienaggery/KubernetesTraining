@@ -17,8 +17,8 @@ spec:
       imagePullSecrets:
         - name: registry-secret
       containers:
-        - name: app-ml
-          image: rg.fr-par.scw.cloud/ariane-registry/app-ml:0.0.3
+        - name: src-ml
+          image: rg.fr-par.scw.cloud/ariane-registry/src-ml:0.0.3
           ports:
             - name: main
               containerPort: 8080

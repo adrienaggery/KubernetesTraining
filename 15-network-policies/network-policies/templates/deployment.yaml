@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: call-redis-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: call-redis-app
+  template:
+    metadata:
+      labels:
+        app: call-redis-app
+    spec:
+      serviceAccountName: "toto"
+      containers:
+        - name: call-redis-app
+          image: "rg.fr-par.scw.cloud/ariane-registry/call-redis-app:{{ .Values.imageVersion }}"
+          env:
+            - name: REDIS_HOST
+              value: {{ .Values.redisHost }}
+            - name: REDIS_PORT
+              value: "{{ .Values.redisPort }}"
